@@ -1,0 +1,47 @@
+
+    .accordion 
+    {
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    padding: 1em;
+    width: 100%;
+    border-bottom-color: white;
+    text-align:left; 
+    font-size: 16px;
+    transition: 0.4s;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    }
+            
+    /*.active, .accordion:hover 
+    {
+    background-color: #E7E9E9; 
+    }*/
+    
+    .accordion:hover 
+    {
+    background-color: #E7E9E9; 
+    }
+    
+    
+    .accordion:after 
+    {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: left;
+    margin-right: 50px;
+        
+    }
+
+    /*.active:after 
+    {
+    content: "\00AB";
+    }*/
+
+    .panel
+    {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    }

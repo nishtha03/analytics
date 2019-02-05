@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js" type="text/javascript"></script>
+    <script src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"
+            type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+{% extends 'upload/base.html' %}
+
+{% block content %}
+
+<script type="text/javascript">
+     function sub(){
+
+       var radios = document.getElementsByName('chartType');
+
+        for (var i = 0, length = radios.length; i < length; i++) {
+          if (radios[i].checked) {
+        // do whatever you want with the checked radio
+        // only one radio can be logically checked, don't check the rest
+        break;
+    }
+}
+ document.forms[0].submit();
+           }
+
+function list(){
+
+       var list = document.getElementsByName('listType');
+
+        for (var i = 0, length = list.length; i < length; i++) {
+          if (list[i].checked) {
+        // do whatever you want with the checked radio
+        // only one radio can be logically checked, don't check the rest
+        break;
+    }
+}
+ document.forms[0].submit();
+           }
+
+
+
+function handleSelect1(elm)
+{
+window.location = elm.value+"";
+}
+
+
+
+
+
+
+
+
+
+</script>
+
+<form name="frm1" method="post" action="/Answer1/">
+
+    <div id="fh5co-pricing">
+        <div class="container">
+
+            <!-- RADIO BUTTONS select chart type -->
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-6 col-md-6">
+                        <h3>Technology Group</h3>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <select class="form-control" name="frm1" onchange="javascript:handleSelect1(this)">
+                            <option value="" hidden>select</option>
+                            <option value="/question/"> Data Visualization</option>
+                            <option value="/crm/">CRM</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-4 col-md-4">
+
+                        <h3 class="animate-box"> Chart </h3>
+                    </div>
+                    <div class="fh5co-blog animate-box col-lg-8 col-md-8">
+                        <label style="padding: 0px 5px !important;">
+                            <input name="chartType" onClick="sub()" type="radio" value="bar"/>BarChart
+                        </label>
+                        <label style="padding: 0px 5px !important;">
+                            <input name="chartType" onClick="sub()" type="radio" value="line"/>LineChart
+                        </label>
+                        <label style="padding: 0px 5px !important;">
+                            <input name="chartType" onClick="sub()" type="radio" value="barh"/>ColumnChart
+                        </label>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <br>
+    <div id="fh5co-blog">
+        <div class="container">
+            <div class="row">
+                <section>
+                    <div class="col-md-12 col-sm-12">
+
+                        <!-- QUESTIONS HERE -->
+                        <div class="col-lg-4 col-md-4">
+                            <ul class="list-group">
+                                <!-- All Questions -->
+                                <li class="list-group-item"><i class="fa fa-list"
+                                                               aria-hidden="true"></i> &nbsp;CRM Openings
+
+                                <li class="list-group-item">
+                                    <label style="padding: 0px 5px !important;">
+                                        <input name="chartType" checked
+                                               onclick="javascript:window.location.href='/crm1/'; return false;"
+                                               type="radio"/>according
+                                        to Technology
+                                    </label>
+
+                                    <label style="padding: 0px 5px !important;">
+                                        <input name="chartType"
+                                               onclick="javascript:window.location.href='/crm8/'; return false;"
+                                               type="radio"/> According
+                                        To salary
+                                    </label>
+
+                                    <label style="padding: 0px 5px !important;">
+                                        <input name="chartType"
+                                               onclick="javascript:window.location.href='/crm3/'; return false;"
+                                               type="radio"/> According
+                                        To Experience
+                                    </label>
+
+                                    <label style="padding: 0px 5px !important;">
+                                        <input name="chartType"
+                                               onclick="javascript:window.location.href='/crm2/'; return false;"
+                                               type="radio"/> According
+                                        To Location
+                                    </label>
+
+                                    <label style="padding: 0px 5px !important;">
+                                        <input name="chartType"
+                                               onclick="javascript:window.location.href='/crm6/'; return false;"
+                                               type="radio"/> According
+                                        To Company
+                                    </label>
+
+
+                                </li>
+
+
+                                </li>
+
+
+                            </ul>
+                        </div>
+
+                        <!-- GRAPH IMAGES-->
+
+                        <div class="col-lg-8 col-md-8">
+
+                            <div class="fh5co-blog animate-box">
+                                <img src="data:image/png;base64,{{ graphic|safe }}">
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</form>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+{% if url %}
+<p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+{% endif %}
+{% endblock %}
+</body>
+</html>
